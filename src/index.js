@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import cartReducer from './reducers/cartReducer'
 import Cart from './components/Cart';
 import AddProduct from './components/AddProduct';
-import { createStore } from 'redux';
 import BaseLayout from './components/layout/BaseLayout'
 
 
@@ -18,14 +18,14 @@ import BaseLayout from './components/layout/BaseLayout'
 //Reducer(state,action)
 //create store (reducer)
 
-// let store = createStore(counterReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let store = createStore(cartReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 //connect component to connect mapStateToProps
 //wrap out application inside Provider
 //pass to the proviver to store
 
 ReactDOM.render(
-  // <Provider>
+  <Provider store={store}>
     <BrowserRouter>
       <BaseLayout>
         <Switch>
@@ -34,7 +34,7 @@ ReactDOM.render(
         </Switch>
       </BaseLayout>
     </BrowserRouter>
-  // </Provider>
+  </Provider>
 
 
   ,

@@ -1,7 +1,7 @@
-let addProduct = (item) => {
+let deleteProduct = (item) => {
 
     return{
-        type: 'addProduct',
+        type: 'deleteProduct',
         productData:{
             productName: item.productName,
             productPrice: item.productPrice
@@ -11,4 +11,4 @@ let addProduct = (item) => {
   
 }
 
-export default addProduct
+export default deleteProduct
